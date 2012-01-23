@@ -1,0 +1,6 @@
+bin
+build
+!etc/build
+distr
+lib
+.settings
