@@ -14,6 +14,10 @@ public class BitreteServletContextListener implements ServletContextListener {
 	private static final String REPOSITORY_JNDI_NAME = "repository-jndi-name";
 	private static final String DEFAULT_JNDI_NAME = "jcr/repository";
 	
+	public BitreteServletContextListener() {
+		super();
+	}
+	
 	@Override
 	public void contextDestroyed(ServletContextEvent event) {
 		ServletContext servletContext = event.getServletContext();
@@ -42,12 +46,15 @@ public class BitreteServletContextListener implements ServletContextListener {
 			}
 		}
 		catch (NamingException ex) {
-			servletContext.log("Context resolution failure.", ex);
+			servletContext.log("Context resolution failure while looking up repository.", ex);
 		}
 	}
 
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
+		ServletContext servletContext = event.getServletContext();
+		servletContext.log(String.format("Listener '%s' registered and initialized.", 
+				BitreteServletContextListener.class.getName()));
 	}
 
 	private String getRepositoryJndiName(ServletContext context) {

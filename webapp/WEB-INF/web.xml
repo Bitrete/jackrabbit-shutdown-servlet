@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
 <web-app>
-	<servlet>
-		<servlet-name>JackrabbitShutdownServlet</servlet-name>
-		<servlet-class>ru.bitrete.content.repository.management.JackrabbitShutdownServlet</servlet-class>
-		
-		<listener>
-			<listener-class>ru.bitrete.content.repository.management.BitreteServletContextListener</listener-class>
-		</listener>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>JackrabbitShutdownServlet</servlet-name>
-		<url-pattern>/jss</url-pattern>
-	</servlet-mapping>
+	<display-name>Jackrabbit repository shutdown listener</display-name>
+	<context-param>
+		<param-name>repository-jndi-name</param-name>
+		<param-value>jcr/repository</param-value>
+		<description>
+			Jackrabbit repository global resource name
+		</description>
+	</context-param>
+	<listener>
+		<listener-class>ru.bitrete.content.repository.management.BitreteServletContextListener</listener-class>
+	</listener>
 </web-app>
