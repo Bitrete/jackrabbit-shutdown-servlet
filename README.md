@@ -4,6 +4,7 @@ Bitrete Jackrabbit shutdown servlet for Apache Tomcat
 Problem
 -------
 When you deploy Jackrabbit repository into Tomcat as [shared resource (deployment Model 2)](http://jackrabbit.apache.org/deployment-models.html#DeploymentModels-Model2%3ASharedJ2EEResource), and then try shutdown application server the repository remains locked. This may cause the following problems:
+
 * It's unable to backup locked repository.
 * Sometimes repository fails to start with RepositoryException and message "Repository is locked".
 
